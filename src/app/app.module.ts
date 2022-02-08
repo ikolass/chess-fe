@@ -1,16 +1,28 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {ChessComponent} from './chess/chess.component';
+import {RouterModule} from "@angular/router";
+import {ChessRouterModule} from "./chess/chess.router";
+import {NgxChessBoardModule} from "ngx-chess-board";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChessComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ChessRouterModule,
+    NgxChessBoardModule.forRoot()
   ],
-  providers: [],
+  providers: [AppComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
