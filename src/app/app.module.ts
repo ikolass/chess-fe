@@ -5,9 +5,9 @@ import {AppComponent} from './app.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ChessComponent} from './chess/chess.component';
-import {RouterModule} from "@angular/router";
 import {ChessRouterModule} from "./chess/chess.router";
 import {NgxChessBoardModule} from "ngx-chess-board";
+import {ChessService} from "../service/chess.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import {NgxChessBoardModule} from "ngx-chess-board";
     ChessRouterModule,
     NgxChessBoardModule.forRoot()
   ],
-  providers: [AppComponent],
+  providers: [AppComponent,
+  ChessService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

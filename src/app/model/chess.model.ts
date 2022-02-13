@@ -3,12 +3,12 @@ import {PieceType} from "./piece.enum";
 
 export interface ChessModel {
   pieceDto: PieceDto
-  color: Color
+  color: string
 }
 
 export interface PieceDto {
   locationX: number;
   locationY: number;
-  color: Color;
-  pieceType: PieceType;
+  color: string;
+  pieceType: string;
 }

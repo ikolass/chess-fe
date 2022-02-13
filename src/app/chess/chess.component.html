@@ -1,5 +1,2 @@
 <a (click)="reset()">reset board</a>
-<ngx-chess-board #board></ngx-chess-board>
-
-
-<a (click)="movePiece()">reset board</a>
+<ngx-chess-board (moveChange)="lastMoves()" #board></ngx-chess-board>
