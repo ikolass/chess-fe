@@ -1,9 +1,9 @@
 import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, ViewChild} from '@angular/core';
 import {NgxChessBoardView} from 'ngx-chess-board';
 import {ChessService} from "../../service/chess.service";
-import {ChessModel} from "../model/chess.model";
 import {HistoryMove} from "ngx-chess-board/lib/history-move-provider/history-move";
 import {MoveChange} from "ngx-chess-board/lib/engine/outputs/move-change/move-change";
+import {ChessModel} from "../model/chess.model";
 
 @Component({
   selector: 'app-chess',
@@ -21,7 +21,6 @@ export class ChessComponent implements OnInit {
 
   constructor(private chessService: ChessService,
               private ref: ChangeDetectorRef) {
-    console.log(this.lastMove);
   }
 
   ngAfterContentChecked() {
