@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {environment} from "../environments/environment";
 import {ChessModel} from "../app/model/chess.model";
 
 @Injectable()
@@ -11,7 +10,11 @@ export class ChessService {
   }
 
   pieceMove(chessModel: ChessModel): Observable<any> {
-    return this.http.post(environment.baseUrl + 'api /move', chessModel)
+    return this.http.post( 'http://localhost:8080/api/move', chessModel)
+  }
+
+  getpiece():Observable<any>{
+    return this.http.get('http://localhost:8080/api/start-board')
   }
 
 }

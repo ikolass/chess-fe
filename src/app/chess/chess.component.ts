@@ -29,6 +29,7 @@ export class ChessComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.chessService.getpiece().subscribe()
   }
 
   reset() {
@@ -52,9 +53,9 @@ export class ChessComponent implements OnInit {
     }
 
 
-    // this.chessService.pieceMove(moves).subscribe(res => {
-    //   console.log(res);
-    // })
+    this.chessService.pieceMove(moves).subscribe(res => {
+      console.log(res);
+    })
 
   }
 
