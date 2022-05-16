@@ -4,6 +4,9 @@ import {ChessService} from "../../service/chess.service";
 import {HistoryMove} from "ngx-chess-board/lib/history-move-provider/history-move";
 import {MoveChange} from "ngx-chess-board/lib/engine/outputs/move-change/move-change";
 import {ChessModel} from "../model/chess.model";
+import {parseBoardFen, parseFen} from 'chessops/fen';
+import {Chess} from 'chessops/chess';
+
 
 @Component({
   selector: 'app-chess',
@@ -20,7 +23,9 @@ export class ChessComponent implements OnInit {
   board!: NgxChessBoardView;
 
   constructor(private chessService: ChessService,
-              private ref: ChangeDetectorRef) {
+              private ref: ChangeDetectorRef,
+              //private fen: fen
+  ) {
   }
 
   ngAfterContentChecked() {
@@ -41,6 +46,15 @@ export class ChessComponent implements OnInit {
     this.pieceMoveHistory = []
     this.pieceMoveHistory.push(this.board.getMoveHistory()[this.board.getMoveHistory().length - 1])
     const locationX = this.findLocationX(this.pieceMoveHistory[0].move.slice(2, 3))
+    const fena = this.board.getFEN()
+    const setup = parseFen(fena).unwrap();
+    const chain = parseFen(fena).chain
+    const map = parseFen(fena)
+    const ok = parseFen(fena).isOk
+    const a = parseBoardFen(fena)
+
+   // const pos = Chess.fromSetup(setup).unwrap();
+
 
     const moves: ChessModel = {
       pieceDto: {
